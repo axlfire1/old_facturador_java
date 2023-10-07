@@ -1,0 +1,50 @@
+/**
+ *
+ * @author  korn
+ */
+public class EntradaClientes extends Conexion {
+    
+    /** Creates a new instance of entradaClientes */
+    public EntradaClientes() {
+        insertarCliente();
+    }
+    
+    public void insertarCliente(){
+        
+        try{
+            
+            VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+                       
+            
+            int update = stat.executeUpdate("insert into Clientes values('"
+          + ventanaPrincipal.nombre
+            + "','"
+            + ventanaPrincipal.direccion
+            + "','"
+            + ventanaPrincipal.poblacion
+            + "','"
+            + ventanaPrincipal.rfc
+            + "','"
+            + ventanaPrincipal.cp
+            + "')");
+
+            System.out.println("los Datos Obtenidos Fueron...\n nombre..."
+            +ventanaPrincipal.nombre
+            +"\n"
+            +ventanaPrincipal.direccion
+            +"\n"
+            );
+        }
+        
+        catch (Exception e) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+        
+    }
+    public static void main(String args[]){
+        
+        new EntradaClientes();
+    }
+    
+}
